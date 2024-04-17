@@ -14,6 +14,7 @@
 		AFBACB932BCE63A100F5694B /* practiceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACB922BCE63A100F5694B /* practiceAppTests.swift */; };
 		AFBACB9D2BCE63A100F5694B /* practiceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACB9C2BCE63A100F5694B /* practiceAppUITests.swift */; };
 		AFBACB9F2BCE63A100F5694B /* practiceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACB9E2BCE63A100F5694B /* practiceAppUITestsLaunchTests.swift */; };
+		AFBACBAC2BD01CF300F5694B /* IntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACBAB2BD01CF300F5694B /* IntroduceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		AFBACB982BCE63A100F5694B /* practiceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = practiceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBACB9C2BCE63A100F5694B /* practiceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceAppUITests.swift; sourceTree = "<group>"; };
 		AFBACB9E2BCE63A100F5694B /* practiceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AFBACBAB2BD01CF300F5694B /* IntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				AFBACB832BCE639F00F5694B /* ContentView.swift */,
 				AFBACB852BCE63A100F5694B /* Assets.xcassets */,
 				AFBACB872BCE63A100F5694B /* Preview Content */,
+				AFBACBAB2BD01CF300F5694B /* IntroduceView.swift */,
 			);
 			path = practiceApp;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFBACBAC2BD01CF300F5694B /* IntroduceView.swift in Sources */,
 				AFBACB842BCE639F00F5694B /* ContentView.swift in Sources */,
 				AFBACB822BCE639F00F5694B /* practiceAppApp.swift in Sources */,
 			);
