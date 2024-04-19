@@ -12,6 +12,9 @@ struct StopwatchView: View {
         VStack {
             Text("dd")
         }
+        .padding()
+        .navigationTitle("StopWatch")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

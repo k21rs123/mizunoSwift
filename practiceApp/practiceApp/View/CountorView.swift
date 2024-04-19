@@ -12,14 +12,11 @@ struct CountorView: View {
     @State var textColor: Color = .black
     
     var body: some View {
-        VStack (spacing: 16, content: {
-            
-            Text("Countor")
-                .font(.largeTitle)
+        VStack (spacing: 16) {
             
             Text("\(count)")
                 .foregroundStyle(textColor)
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .font(.title)
             
             Button(action: {updateCount(1)})
             {Text("add")}
@@ -30,7 +27,11 @@ struct CountorView: View {
             Button(action: {resetCount()})
             {Text("reset")}
             
-        })
+        }
+        .padding()
+        .navigationTitle("Countor")
+        .navigationBarTitleDisplayMode(.inline)
+        
     }
     
     private func updateCount(_ value: Int) {

@@ -15,26 +15,26 @@ struct IntroduceView: View {
                     Label("introduce", systemImage: "person")
                 }
             
-//            CountorView()
-//                .tabItem {
-//                    Label("countor", systemImage: "plus.circle")
-//                }
-//            
-//            TimerView()
-//                .tabItem {
-//                    Label("timer", systemImage: "clock.fill")
-//                }
-//            
-//            StopwatchView()
-//                .tabItem {
-//                    Label("stopwatch", systemImage: "stopwatch.fill")
-//                }
-//            
-//            ToDoView()
-//                .tabItem {
-//                    Label("todo", systemImage: "pencil.and.list.clipboard")
-//                }
-//            
+            CountorView()
+                .tabItem {
+                    Label("countor", systemImage: "plus.circle")
+                }
+            
+            TimerView()
+                .tabItem {
+                    Label("timer", systemImage: "clock.fill")
+                }
+            
+            StopwatchView()
+                .tabItem {
+                    Label("stopwatch", systemImage: "stopwatch.fill")
+                }
+            
+            ToDoView()
+                .tabItem {
+                    Label("todo", systemImage: "pencil.and.list.clipboard")
+                }
+            
             
         }
     }

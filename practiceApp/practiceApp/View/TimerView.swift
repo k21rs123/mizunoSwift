@@ -12,6 +12,9 @@ struct TimerView: View {
         VStack {
             Text("ss")
         }
+        .padding()
+        .navigationTitle("Timer")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

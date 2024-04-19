@@ -12,6 +12,9 @@ struct ToDoView: View {
         VStack {
             Text("ff")
         }
+        .padding()
+        .navigationTitle("To Do")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
