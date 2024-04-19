@@ -10,23 +10,23 @@ import SwiftUI
 struct IntroduceView: View {
     var body: some View {
         TabView{
-            HomeView()
+            MyInfoView()
                 .tabItem {
                     Label("introduce", systemImage: "person")
                 }
             
             
-            StoryView()
+            TimerView()
                 .tabItem {
                     Label("timer", systemImage: "clock.fill")
                 }
             
-            FunFactsView()
+            StopwatchView()
                 .tabItem {
-                    Label("Fun Facts", systemImage: "stopwatch.fill")
+                    Label("stopwatch", systemImage: "stopwatch.fill")
                 }
             
-            FavoritesView()
+            ToDoView()
                 .tabItem {
                     Label("todo", systemImage: "pencil.and.list.clipboard")
                 }
@@ -41,34 +41,9 @@ struct IntroduceView: View {
 }
 
 
-struct HomeView: View {
-    var body: some View {
-        VStack {
-            Text("aa")
-        }
-    }
-}
 
-struct StoryView: View {
-    var body: some View {
-        VStack {
-            Text("ss")
-        }
-    }
-}
 
-struct FavoritesView: View {
-    var body: some View {
-        VStack {
-            Text("dd")
-        }
-    }
-}
 
-struct FunFactsView: View {
-    var body: some View {
-        VStack {
-            Text("ff")
-        }
-    }
-}
+
+
+

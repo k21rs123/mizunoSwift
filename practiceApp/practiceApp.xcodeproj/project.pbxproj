@@ -15,6 +15,10 @@
 		AFBACB9D2BCE63A100F5694B /* practiceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACB9C2BCE63A100F5694B /* practiceAppUITests.swift */; };
 		AFBACB9F2BCE63A100F5694B /* practiceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACB9E2BCE63A100F5694B /* practiceAppUITestsLaunchTests.swift */; };
 		AFBACBAC2BD01CF300F5694B /* IntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACBAB2BD01CF300F5694B /* IntroduceView.swift */; };
+		AFBACC512BD1ED6900F5694B /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACC502BD1ED6900F5694B /* MyInfoView.swift */; };
+		AFBACC532BD1ED8300F5694B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACC522BD1ED8300F5694B /* TimerView.swift */; };
+		AFBACC552BD1ED9F00F5694B /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACC542BD1ED9F00F5694B /* StopwatchView.swift */; };
+		AFBACC572BD1EDB100F5694B /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACC562BD1EDB100F5694B /* ToDoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		AFBACB9C2BCE63A100F5694B /* practiceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceAppUITests.swift; sourceTree = "<group>"; };
 		AFBACB9E2BCE63A100F5694B /* practiceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AFBACBAB2BD01CF300F5694B /* IntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceView.swift; sourceTree = "<group>"; };
+		AFBACC502BD1ED6900F5694B /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		AFBACC522BD1ED8300F5694B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		AFBACC542BD1ED9F00F5694B /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
+		AFBACC562BD1EDB100F5694B /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,11 +104,10 @@
 		AFBACB802BCE639F00F5694B /* practiceApp */ = {
 			isa = PBXGroup;
 			children = (
+				AFBACC4F2BD1ECE700F5694B /* View */,
 				AFBACB812BCE639F00F5694B /* practiceAppApp.swift */,
-				AFBACB832BCE639F00F5694B /* ContentView.swift */,
 				AFBACB852BCE63A100F5694B /* Assets.xcassets */,
 				AFBACB872BCE63A100F5694B /* Preview Content */,
-				AFBACBAB2BD01CF300F5694B /* IntroduceView.swift */,
 			);
 			path = practiceApp;
 			sourceTree = "<group>";
@@ -128,6 +135,19 @@
 				AFBACB9E2BCE63A100F5694B /* practiceAppUITestsLaunchTests.swift */,
 			);
 			path = practiceAppUITests;
+			sourceTree = "<group>";
+		};
+		AFBACC4F2BD1ECE700F5694B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFBACB832BCE639F00F5694B /* ContentView.swift */,
+				AFBACBAB2BD01CF300F5694B /* IntroduceView.swift */,
+				AFBACC502BD1ED6900F5694B /* MyInfoView.swift */,
+				AFBACC522BD1ED8300F5694B /* TimerView.swift */,
+				AFBACC542BD1ED9F00F5694B /* StopwatchView.swift */,
+				AFBACC562BD1EDB100F5694B /* ToDoView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFBACC532BD1ED8300F5694B /* TimerView.swift in Sources */,
+				AFBACC512BD1ED6900F5694B /* MyInfoView.swift in Sources */,
+				AFBACC552BD1ED9F00F5694B /* StopwatchView.swift in Sources */,
 				AFBACBAC2BD01CF300F5694B /* IntroduceView.swift in Sources */,
+				AFBACC572BD1EDB100F5694B /* ToDoView.swift in Sources */,
 				AFBACB842BCE639F00F5694B /* ContentView.swift in Sources */,
 				AFBACB822BCE639F00F5694B /* practiceAppApp.swift in Sources */,
 			);
