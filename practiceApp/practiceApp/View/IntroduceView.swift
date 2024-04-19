@@ -15,6 +15,10 @@ struct IntroduceView: View {
                     Label("introduce", systemImage: "person")
                 }
             
+            CountorView()
+                .tabItem {
+                    Label("countor", systemImage: "plus.circle")
+                }
             
             TimerView()
                 .tabItem {
