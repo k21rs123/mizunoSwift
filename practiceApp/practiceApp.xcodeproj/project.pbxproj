@@ -19,6 +19,8 @@
 		AFBACC532BD1ED8300F5694B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACC522BD1ED8300F5694B /* TimerView.swift */; };
 		AFBACC552BD1ED9F00F5694B /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACC542BD1ED9F00F5694B /* StopwatchView.swift */; };
 		AFBACC572BD1EDB100F5694B /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACC562BD1EDB100F5694B /* ToDoView.swift */; };
+		AFBACC592BD1F67A00F5694B /* CountorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACC582BD1F67A00F5694B /* CountorView.swift */; };
+		AFD424632BD2411F002117EE /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD424622BD2411F002117EE /* LinkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		AFBACC522BD1ED8300F5694B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		AFBACC542BD1ED9F00F5694B /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		AFBACC562BD1EDB100F5694B /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
+		AFBACC582BD1F67A00F5694B /* CountorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountorView.swift; sourceTree = "<group>"; };
+		AFD424622BD2411F002117EE /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 				AFBACC522BD1ED8300F5694B /* TimerView.swift */,
 				AFBACC542BD1ED9F00F5694B /* StopwatchView.swift */,
 				AFBACC562BD1EDB100F5694B /* ToDoView.swift */,
+				AFBACC582BD1F67A00F5694B /* CountorView.swift */,
+				AFD424622BD2411F002117EE /* LinkView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,11 +287,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFBACC532BD1ED8300F5694B /* TimerView.swift in Sources */,
+				AFBACC592BD1F67A00F5694B /* CountorView.swift in Sources */,
 				AFBACC512BD1ED6900F5694B /* MyInfoView.swift in Sources */,
 				AFBACC552BD1ED9F00F5694B /* StopwatchView.swift in Sources */,
 				AFBACBAC2BD01CF300F5694B /* IntroduceView.swift in Sources */,
 				AFBACC572BD1EDB100F5694B /* ToDoView.swift in Sources */,
 				AFBACB842BCE639F00F5694B /* ContentView.swift in Sources */,
+				AFD424632BD2411F002117EE /* LinkView.swift in Sources */,
 				AFBACB822BCE639F00F5694B /* practiceAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

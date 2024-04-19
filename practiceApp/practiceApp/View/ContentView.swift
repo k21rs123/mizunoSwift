@@ -24,7 +24,7 @@ struct ContentView: View {
             
             if isShowingView {
                 
-                IntroduceView()
+                LinkView()
                 
             } else {
                 Text("自己紹介アプリを作りSwiftUIの基本的な使い方を知ろうアプリ。")
