@@ -38,6 +38,32 @@ struct MyInfoView: View {
                 Spacer()
                 
             })
+            
+            NavigationView {
+                List {
+                    Text("出身：福岡県　福岡市　博多区")
+                        .padding()
+                        .font(.title3)
+                    Text("好きな天気：晴れ")
+                        .padding()
+                        .font(.title3)
+                    Text("好きな季節：秋")
+                        .padding()
+                        .font(.title3)
+                    Text("好きなゲーム：原神")
+                        .padding()
+                        .font(.title3)
+                    Text("好きな本：Kotlin")
+                        .padding()
+                        .font(.title3)
+                    Text("ひとこと：よろしくお願いします")
+                        .padding()
+                        .font(.title3)
+                }
+                .navigationTitle("自己紹介")
+            }
+            
+            
             Spacer()
         }
     }

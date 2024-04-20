@@ -22,10 +22,10 @@ struct CountorView: View {
             {Text("add")}
             
             Button(action: {updateCount(-1)})
-            {Text("sub")}
+            {Text("sub").foregroundStyle(Color.red)}
             
             Button(action: {resetCount()})
-            {Text("reset")}
+            {Text("reset").foregroundStyle(Color.black)}
             
         }
         .padding()
@@ -49,7 +49,7 @@ private func updateTextColor(count: Int) -> Color {
     var color:Color = .black
     
     if count == 0 { color = Color.black }
-    else if count > 10 { color = Color.blue }
+    else if count > 9 { color = Color.blue }
     else if count < 0 { color = Color.red }
     
     return  color
