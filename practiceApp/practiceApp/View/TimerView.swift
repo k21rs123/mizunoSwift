@@ -13,6 +13,8 @@ struct TimerView: View {
     @State private var timerRemaining: TimeInterval = 10.0
     @State private var timer: Timer?
     @State private var isRunning: Bool = false
+    @State private var isPause: Bool = false
+    @State private var isShowAlert: Bool = false
     
     
     
@@ -21,19 +23,19 @@ struct TimerView: View {
             VStack(alignment: .center) {
                 ZStack {
                     Circle()
-                        .stroke(lineWidth: 20)
-                        .opacity(0.2)
+                        .stroke(lineWidth: 12)
+                        .opacity(0.1)
                     Circle()
-                        .stroke(lineWidth: 15)
+                        .stroke(lineWidth: 10)
                         .foregroundStyle(Color.white)
-                        .opacity(0.2)
+                        .opacity(0.9)
                     Circle()
-                        .trim(from: 0, to: CGFloat(1 - (timerRemaining / settingCountor)))
-                        .stroke(style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
+                        .trim(from: 0, to: CGFloat(timerRemaining / settingCountor))
+                        .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
                         .rotationEffect(.degrees(-90))
-                        .foregroundStyle(Color.mint)
+                        .foregroundStyle(Color.yellow)
                     Text(formattedTime())
-                        .font(.largeTitle)
+                        .font(.system(size: 48))
                         .fontWeight(.bold)
                 }
                 .frame(maxWidth: 500)
@@ -45,10 +47,24 @@ struct TimerView: View {
                             startTimer()
                         } else {
                             stopTimer()
+                            isPause = false
                         }
                     } label: {
                         Image(systemName: isRunning ? "stop.fill" : "play.fill")
                             .foregroundStyle(isRunning ? Color.red : Color.blue)
+                            .frame(width: 50, height: 50)
+                            .font(.largeTitle)
+                            .padding()
+                    }
+                    
+                    Button {
+                        if isRunning {
+                            isPause.toggle()
+                            pauseTimer()
+                        }
+                    } label: {
+                        Image(systemName: isPause ? "play.circle" : "pause.fill")
+                            .foregroundStyle(isRunning ? Color.green : Color.gray)
                             .frame(width: 50, height: 50)
                             .font(.largeTitle)
                             .padding()
@@ -60,10 +76,16 @@ struct TimerView: View {
                 }
                 .font(.title)
                 
+                
             }
             .padding(.horizontal, 30)
-            
-            
+            .alert("finish", isPresented: $isShowAlert) {
+                Button("OK") {
+                    isShowAlert.toggle()
+                }
+            } message: {
+                Text("Time is up")
+            }
         }
         .navigationTitle("Timer")
         .navigationBarTitleDisplayMode(.inline)
@@ -76,10 +98,11 @@ struct TimerView: View {
     }
     
     private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
             if timerRemaining > 0 {
-                timerRemaining -= 0.1
+                timerRemaining -= 0.01
             } else {
+                isShowAlert.toggle()
                 stopTimer()
             }
         }
@@ -90,10 +113,12 @@ struct TimerView: View {
         timer?.invalidate()
         timerRemaining = settingCountor
     }
+    
+    private func pauseTimer() {
+        if isPause { timer?.invalidate() }
+        else { startTimer() }
+    }
 }
-
-
-
 
 #Preview {
     TimerView()
@@ -107,9 +132,8 @@ struct SetTimeView: View {
     
     var body: some View {
             Picker("Select Timer", selection: $selectedValue) {
-                ForEach(1..<10) { index in
-                    Text("\(index * 10)")
-                        .tag(index * 10)
+                ForEach(1..<19) { index in
+                    Text("\(index * 10)").tag(index * 10)
                 }
             }
             .onChange(of: selectedValue) { oldState, newValue in
