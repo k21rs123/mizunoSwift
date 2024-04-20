@@ -39,8 +39,20 @@ struct ContentView: View {
                 ZStack {
                     Circle()
                         .frame(width: 200, height: 200)
+                        .offset(x: 22, y: 10)
+                        .foregroundStyle(backGradientView)
+                        .foregroundStyle(.ultraThickMaterial)
+                        .shadow(color: .init(white: 0.4, opacity: 0.4), radius: 5, x: 0, y: 0)
+                    Circle()
+                        .frame(width: 200, height: 200)
                         .offset(x: 20, y: 8)
                         .foregroundStyle(backGradientView)
+                        .foregroundStyle(.ultraThickMaterial)
+                        .shadow(color: .init(white: 0.4, opacity: 0.4), radius: 5, x: 0, y: 0)
+                    Circle()
+                        .frame(width: 200, height: 200)
+                        .offset(x: -24, y: -10)
+                        .foregroundStyle(frontGradientView)
                         .foregroundStyle(.ultraThickMaterial)
                         .shadow(color: .init(white: 0.4, opacity: 0.4), radius: 5, x: 0, y: 0)
                     Circle()
@@ -53,7 +65,7 @@ struct ContentView: View {
                         print("button tapped")
                         isShowingView.toggle()
                     }){
-                        Text("Osite!11!!!!!!")
+                        Text("Osite!11!!!!")
                             .font(.system(size: 25, weight: .semibold, design: .default))
                             .foregroundColor(.white)
                             .padding()
@@ -62,7 +74,7 @@ struct ContentView: View {
                                 // ぼかし効果
                                     .foregroundStyle(.ultraThinMaterial)
                                 // ドロップシャドウで立体感を表現
-                                    .shadow(color: .init(white: 0.4, opacity: 0.4), radius: 5, x: 0, y: 0)
+                                    .shadow(color: .init(white: 0.5, opacity: 0.9), radius: 5, x: 0, y: 0)
                             )
                             .overlay(
                                 // strokeでガラスの縁を表現

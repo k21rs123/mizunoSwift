@@ -36,13 +36,13 @@ struct NavLink<Content>: View where Content: View {
     let content: Content
     
     var body: some View {
-        NavigationLink(linkText) {
-            content
+        NavigationLink(destination: content) {
+            Text(linkText)
+                .frame(width: screenWidth * 0.4)
+                .padding()
+                .background(Color.mint, in: RoundedRectangle(cornerRadius: 16))
+                .foregroundStyle(Color.white)
         }
-        .frame(width: screenWidth * 0.4)
-        .padding()
-        .background(Color.mint, in: RoundedRectangle(cornerRadius: 16))
-        .foregroundStyle(Color.white)
     }
 }
 
