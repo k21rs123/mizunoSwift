@@ -14,7 +14,7 @@ struct ContentView: View {
     
     
     var body: some View {
-        let screenSize = UIScreen.main.bounds.size
+//        let screenSize = UIScreen.main.bounds.size
         //        let screenWidth = screenSize.width
 //        let screenHeight = screenSize.height
         

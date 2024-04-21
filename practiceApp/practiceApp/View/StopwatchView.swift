@@ -10,26 +10,26 @@ import SwiftUI
 struct StopwatchView: View {
     @State private var timerRemaining: TimeInterval = 0.00
     @State private var timer: Timer?
-    
+
     @State private var isRunning: Bool = false
     @State private var isStop: Bool = false
     @State private var isActive: Bool = false
-    
+
     @State private var firstLap: String = ""
     @State private var secondLap: String = ""
     @State private var thirdLap: String = ""
-    
+
     var body: some View {
         let size = UIScreen.main.bounds.size
         let screenHeight = size.height
         let screenWidth = size.width
-        
+
         VStack {
             Spacer()
             Text(formatTime())
                 .font(.system(size: screenHeight * 0.1))
                 .frame(maxWidth: screenWidth * 0.9)
-                .frame(minWidth: screenWidth * 0.9)
+
             ScrollView {
                 Text(firstLap)
                     .foregroundStyle(Color.black)
@@ -88,7 +88,6 @@ struct StopwatchView: View {
     private func stopTimer() {
         timer?.invalidate()
         isStop = true
-        
     }
     
     private func resetTimer() {
