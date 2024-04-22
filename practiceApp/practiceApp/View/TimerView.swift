@@ -110,11 +110,12 @@ struct TimerView: View {
                         }
                     } label: {
                         Image(systemName: isRunning ? "stop.fill" : "play.fill")
-                            .foregroundStyle(isRunning ? Color.red : Color.blue)
+                            .foregroundStyle(timerRemaining < 1 && !isRunning ? Color.gray :(isRunning ? Color.red : Color.blue))
                             .frame(width: 50, height: 50)
                             .font(.largeTitle)
                             .padding()
                     }
+                    .disabled(timerRemaining < 1 && !isRunning)
                     
                     Button {
                         if isRunning {
