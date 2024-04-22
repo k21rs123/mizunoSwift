@@ -30,7 +30,7 @@ struct ContentView: View {
                 Text("自己紹介アプリを作りSwiftUIの基本的な使い方を知ろうアプリ。")
                     .font(.title)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                     .multilineTextAlignment(.center)
                     .padding(8)
                     .shadow(radius: 8)
@@ -39,20 +39,8 @@ struct ContentView: View {
                 ZStack {
                     Circle()
                         .frame(width: 200, height: 200)
-                        .offset(x: 22, y: 10)
-                        .foregroundStyle(backGradientView)
-                        .foregroundStyle(.ultraThickMaterial)
-                        .shadow(color: .init(white: 0.4, opacity: 0.4), radius: 5, x: 0, y: 0)
-                    Circle()
-                        .frame(width: 200, height: 200)
                         .offset(x: 20, y: 8)
                         .foregroundStyle(backGradientView)
-                        .foregroundStyle(.ultraThickMaterial)
-                        .shadow(color: .init(white: 0.4, opacity: 0.4), radius: 5, x: 0, y: 0)
-                    Circle()
-                        .frame(width: 200, height: 200)
-                        .offset(x: -24, y: -10)
-                        .foregroundStyle(frontGradientView)
                         .foregroundStyle(.ultraThickMaterial)
                         .shadow(color: .init(white: 0.4, opacity: 0.4), radius: 5, x: 0, y: 0)
                     Circle()
@@ -60,7 +48,7 @@ struct ContentView: View {
                         .offset(x: -20, y: -8)
                         .foregroundStyle(frontGradientView)
                         .foregroundStyle(.ultraThickMaterial)
-                        .shadow(color: .init(white: 0.4, opacity: 0.4), radius: 5, x: 0, y: 0)
+                        .shadow(color: .init(white: 0.4, opacity: 0.3), radius: 5, x: 0, y: 0)
                     Button(action: {
                         print("button tapped")
                         isShowingView.toggle()
@@ -74,8 +62,7 @@ struct ContentView: View {
                                 // ぼかし効果
                                     .foregroundStyle(.ultraThinMaterial)
                                 // ドロップシャドウで立体感を表現
-                                    .shadow(color: .init(white: 0.5, opacity: 0.9), radius: 5, x: 0, y: 0)
-                            )
+                                    .shadow(color: .init(white: 0.4, opacity: 0.4), radius: 5, x: 0, y: 0))
                             .overlay(
                                 // strokeでガラスの縁を表現
                                 RoundedRectangle(cornerRadius: 30)

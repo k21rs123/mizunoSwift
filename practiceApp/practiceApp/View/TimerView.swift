@@ -9,16 +9,22 @@ import SwiftUI
 
 struct TimerView: View {
     
-    @State private var settingCountor: TimeInterval = 10.0
-    @State private var timerRemaining: TimeInterval = 10.0
+    @State private var settingCountor: TimeInterval = 0.0
+    @State private var timerRemaining: TimeInterval = 0.0
     @State private var timer: Timer?
     @State private var isRunning: Bool = false
     @State private var isPause: Bool = false
     @State private var isShowAlert: Bool = false
     
-    
+    @State private var isEditingMinute: Bool = false
+    @State private var isEditingSecond: Bool = false
+    @State private var editMinuteText: String = ""
+    @State private var editSecondText: String = ""
     
     var body: some View {
+        let screenSize = UIScreen.main.bounds.size
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
         NavigationStack {
             VStack(alignment: .center) {
                 ZStack {
@@ -34,9 +40,62 @@ struct TimerView: View {
                         .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
                         .rotationEffect(.degrees(-90))
                         .foregroundStyle(Color.yellow)
-                    Text(formattedTime())
-                        .font(.system(size: 48))
-                        .fontWeight(.bold)
+                    HStack {
+                        if isEditingMinute {
+                            TextField("", text: $editMinuteText, onCommit: {
+                                if let time = TimeInterval(editMinuteText) {
+                                    timerRemaining = time * 60 + (timerRemaining.truncatingRemainder(dividingBy: 60))
+                                    settingCountor = time * 60 + (timerRemaining.truncatingRemainder(dividingBy: 60))
+                                }
+                                isEditingMinute = false
+                            })
+                            .textFieldStyle(.roundedBorder)
+                            .font(.system(size: 48))
+                            .fontWeight(.bold)
+                            .frame(width: screenWidth * 0.2)
+                            .keyboardType(.numberPad)
+                            .onAppear {
+                                let minute = formattedMinute()
+                                editMinuteText = minute
+                            }
+                        } else {
+                            Text(formattedMinute())
+                                .font(.system(size: 48))
+                                .fontWeight(.bold)
+                                .onTapGesture {
+                                    isEditingMinute = true
+                                }
+                        }
+                        Text(":")
+                            .font(.system(size: 48))
+                            .fontWeight(.bold)
+                        if isEditingSecond {
+                            TextField("", text: $editSecondText, onCommit: {
+                                if let time = TimeInterval(editSecondText) {
+                                    timerRemaining = time + TimeInterval(Int(timerRemaining / 60) * 60)
+                                    settingCountor = time + TimeInterval(Int(timerRemaining / 60) * 60)
+                                }
+                                isEditingSecond = false
+                            })
+                            .textFieldStyle(.roundedBorder)
+                            .font(.system(size: 48))
+                            .fontWeight(.bold)
+                            .frame(width: screenWidth * 0.2)
+                            .keyboardType(.numberPad)
+                            .onAppear {
+                                let second = formattedSecond()
+                                editSecondText = second
+                            }
+                        } else {
+                            Text(formattedSecond())
+                                .font(.system(size: 48))
+                                .fontWeight(.bold)
+                                .onTapGesture {
+                                    isEditingSecond = true
+                                }
+                        }
+                    }
+                    
                 }
                 .frame(maxWidth: 500)
                 
@@ -71,10 +130,6 @@ struct TimerView: View {
                     }
                     
                 }
-                NavigationLink("set time") {
-                    SetTimeView(settingCountor: $settingCountor, timerRemaining: $timerRemaining)
-                }
-                .font(.title)
                 
                 
             }
@@ -91,10 +146,14 @@ struct TimerView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    private func formattedTime() -> String {
+    private func formattedMinute() -> String {
         let minutes = Int(timerRemaining) / 60
+        return String(format: "%02d", minutes)
+        
+    }
+    private func formattedSecond() -> String {
         let second = Int(timerRemaining) % 60
-        return String(format: "%02d:%02d", minutes, second)
+        return String(format: "%02d", second)
     }
     
     private func startTimer() {
@@ -122,25 +181,4 @@ struct TimerView: View {
 
 #Preview {
     TimerView()
-}
-
-struct SetTimeView: View {
-    @Binding var settingCountor: TimeInterval
-    @Binding var timerRemaining: TimeInterval
-    
-    @State private var selectedValue = 1
-    
-    var body: some View {
-            Picker("Select Timer", selection: $selectedValue) {
-                ForEach(1..<19) { index in
-                    Text("\(index * 10)").tag(index * 10)
-                }
-            }
-            .onChange(of: selectedValue) { oldState, newValue in
-                let newTimeInterval = TimeInterval(newValue)
-                settingCountor = newTimeInterval
-                timerRemaining = newTimeInterval
-            }
-            .pickerStyle(WheelPickerStyle())
-        }
 }
