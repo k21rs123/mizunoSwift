@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TimerView: View {
     
@@ -24,7 +25,6 @@ struct TimerView: View {
     var body: some View {
         let screenSize = UIScreen.main.bounds.size
         let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
         NavigationStack {
             VStack(alignment: .center) {
                 ZStack {
@@ -44,8 +44,14 @@ struct TimerView: View {
                         if isEditingMinute {
                             TextField("", text: $editMinuteText, onCommit: {
                                 if let time = TimeInterval(editMinuteText) {
-                                    timerRemaining = time * 60 + (timerRemaining.truncatingRemainder(dividingBy: 60))
-                                    settingCountor = time * 60 + (timerRemaining.truncatingRemainder(dividingBy: 60))
+                                    var setTime: TimeInterval
+                                    if time > 180 {
+                                        setTime = 180
+                                    } else {
+                                        setTime = time
+                                    }
+                                    timerRemaining = setTime * 60 + (timerRemaining.truncatingRemainder(dividingBy: 60))
+                                    settingCountor = timerRemaining
                                 }
                                 isEditingMinute = false
                             })
@@ -72,8 +78,15 @@ struct TimerView: View {
                         if isEditingSecond {
                             TextField("", text: $editSecondText, onCommit: {
                                 if let time = TimeInterval(editSecondText) {
-                                    timerRemaining = time + TimeInterval(Int(timerRemaining / 60) * 60)
-                                    settingCountor = time + TimeInterval(Int(timerRemaining / 60) * 60)
+                                    var setTime: TimeInterval
+                                    if time > 10800 {
+                                        setTime = 10800
+                                    } else {
+                                        setTime = time
+                                    }
+                                    timerRemaining = setTime + TimeInterval(Int(timerRemaining / 60) * 60)
+                                    settingCountor = timerRemaining
+                                    print ("\(timerRemaining) , \(settingCountor)")
                                 }
                                 isEditingSecond = false
                             })
@@ -136,9 +149,7 @@ struct TimerView: View {
             }
             .padding(.horizontal, 30)
             .alert("finish", isPresented: $isShowAlert) {
-                Button("OK") {
-                    isShowAlert.toggle()
-                }
+                Button("OK") {isShowAlert.toggle()}
             } message: {
                 Text("Time is up")
             }
