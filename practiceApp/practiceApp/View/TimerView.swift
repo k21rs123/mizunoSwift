@@ -72,9 +72,8 @@ struct TimerView: View {
                     } label: {
                         Image(systemName: isRunning ? "stop.fill" : "play.fill")
                             .foregroundStyle(timerRemaining < 1 && !isRunning ? Color.gray :(isRunning ? Color.red : Color.blue))
-                            .frame(width: 50, height: 50)
                             .font(.largeTitle)
-                            .padding()
+                            .padding(32)
                     }
                     .disabled(timerRemaining < 1 && !isRunning)
                     
@@ -86,9 +85,8 @@ struct TimerView: View {
                     } label: {
                         Image(systemName: isPause ? "play.circle" : "pause.fill")
                             .foregroundStyle(isRunning ? Color.green : Color.gray)
-                            .frame(width: 50, height: 50)
                             .font(.largeTitle)
-                            .padding()
+                            .padding(32)
                     }
                 }
                 
@@ -147,10 +145,7 @@ struct TimerText: View {
     @Binding var isEditing: Bool
     let time: String
     var body: some View {
-        Text(time)
-            .font(.system(size: 48))
-            .fontWeight(.bold)
-            .onTapGesture { isEditing = true }
+        Text(time).font(.system(size: 48)).fontWeight(.bold).onTapGesture { isEditing = true }
     }
 }
 
@@ -162,7 +157,6 @@ struct SettingTextField: View {
     let formatTime: String
     let screenWidth: CGFloat
     let isSecond: Bool
-    
     var body: some View {
         TextField("", text: $editText, onCommit: {
             if var time = TimeInterval(editText) {
