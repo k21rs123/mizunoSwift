@@ -42,64 +42,18 @@ struct TimerView: View {
                         .foregroundStyle(Color.yellow)
                     HStack {
                         if isEditingMinute {
-                            TextField("", text: $editMinuteText, onCommit: {
-                                if let time = TimeInterval(editMinuteText) {
-                                    if time > 180 {
-                                        timerRemaining = 180 * 60 + (timerRemaining.truncatingRemainder(dividingBy: 60))
-                                    } else {
-                                        timerRemaining = time * 60 + (timerRemaining.truncatingRemainder(dividingBy: 60))
-                                    }
-                                    settingCountor = timerRemaining
-                                }
-                                isEditingMinute = false
-                            })
-                            .textFieldStyle(.roundedBorder)
-                            .font(.system(size: 48))
-                            .fontWeight(.bold)
-                            .frame(width: screenWidth * 0.2)
-                            .keyboardType(.numberPad)
-                            .onAppear {
-                                let minute = formattedMinute()
-                                editMinuteText = minute
-                            }
+                            SettingTextField(editText: $editMinuteText, isEditing: $isEditingMinute, timerRemaining: $timerRemaining, settingCountor: $settingCountor, formatTime: formattedMinute(), screenWidth: screenWidth,isSecond: false)
                         } else {
-                            Text(formattedMinute())
-                                .font(.system(size: 48))
-                                .fontWeight(.bold)
-                                .onTapGesture {
-                                    isEditingMinute = true
-                                }
+                            TimerText(isEditing: $isEditingMinute, time: formattedMinute())
+                            
                         }
                         Text(":")
                             .font(.system(size: 48))
                             .fontWeight(.bold)
                         if isEditingSecond {
-                            TextField("", text: $editSecondText, onCommit: {
-                                if let time = TimeInterval(editSecondText) {
-                                    if time > 10800 {
-                                        timerRemaining = 10800 + TimeInterval(Int(timerRemaining / 60) * 60)
-                                    } else {
-                                        timerRemaining = time + TimeInterval(Int(timerRemaining / 60) * 60)
-                                    }
-                                    settingCountor = timerRemaining
-                                    print ("\(timerRemaining) , \(settingCountor)")
-                                }
-                                isEditingSecond = false
-                            })
-                            .textFieldStyle(.roundedBorder)
-                            .font(.system(size: 48))
-                            .fontWeight(.bold)
-                            .frame(width: screenWidth * 0.2)
-                            .keyboardType(.numberPad)
-                            .onAppear {
-                                let second = formattedSecond()
-                                editSecondText = second
-                            }
+                            SettingTextField(editText: $editSecondText, isEditing: $isEditingSecond, timerRemaining: $timerRemaining, settingCountor: $settingCountor, formatTime: formattedSecond(), screenWidth: screenWidth,isSecond: true)
                         } else {
-                            Text(formattedSecond())
-                                .font(.system(size: 48))
-                                .fontWeight(.bold)
-                                .onTapGesture { isEditingSecond = true }
+                            TimerText(isEditing: $isEditingSecond, time: formattedSecond())
                         }
                     }
                     
@@ -136,10 +90,15 @@ struct TimerView: View {
                             .font(.largeTitle)
                             .padding()
                     }
-                    
                 }
                 
-                
+                Button {
+                    timerRemaining = 0
+                    settingCountor = 0
+                } label: {
+                    Text("Reset")
+                        .font(.largeTitle)
+                }
             }
             .padding(.horizontal, 30)
             .alert("finish", isPresented: $isShowAlert) {
@@ -182,6 +141,48 @@ struct TimerView: View {
     private func pauseTimer() {
         if isPause { timer?.invalidate() }
         else { startTimer() }
+    }
+}
+struct TimerText: View {
+    @Binding var isEditing: Bool
+    let time: String
+    var body: some View {
+        Text(time)
+            .font(.system(size: 48))
+            .fontWeight(.bold)
+            .onTapGesture { isEditing = true }
+    }
+}
+
+struct SettingTextField: View {
+    @Binding var editText: String
+    @Binding var isEditing: Bool
+    @Binding var timerRemaining: TimeInterval
+    @Binding var settingCountor: TimeInterval
+    let formatTime: String
+    let screenWidth: CGFloat
+    let isSecond: Bool
+    
+    var body: some View {
+        TextField("", text: $editText, onCommit: {
+            if var time = TimeInterval(editText) {
+                if isSecond {
+                    if time > 10800 { time = 10800 }
+                    timerRemaining = time + TimeInterval(Int(timerRemaining))
+                } else {
+                    if time > 180 { time = 180 }
+                    timerRemaining = time * 60 + (timerRemaining.truncatingRemainder(dividingBy: 60))
+                }
+                settingCountor = timerRemaining
+            }
+            isEditing = false
+        })
+        .textFieldStyle(.roundedBorder)
+        .font(.system(size: 48))
+        .fontWeight(.bold)
+        .frame(width: screenWidth * 0.2)
+        .keyboardType(.numberPad)
+        .onAppear { editText = formatTime }
     }
 }
 
