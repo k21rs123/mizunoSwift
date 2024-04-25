@@ -31,15 +31,18 @@ struct TimerView: View {
                     Circle()
                         .stroke(lineWidth: 12)
                         .opacity(0.1)
+                    
                     Circle()
                         .stroke(lineWidth: 10)
                         .foregroundStyle(Color.white)
                         .opacity(0.9)
+                    
                     Circle()
                         .trim(from: 0, to: CGFloat(timerRemaining / settingCountor))
                         .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
                         .rotationEffect(.degrees(-90))
                         .foregroundStyle(Color.yellow)
+                    
                     HStack {
                         if isEditingMinute {
                             SettingTextField(editText: $editMinuteText, isEditing: $isEditingMinute, timerRemaining: $timerRemaining, settingCountor: $settingCountor, formatTime: formattedMinute(), screenWidth: screenWidth,isSecond: false)
@@ -47,9 +50,11 @@ struct TimerView: View {
                             TimerText(isEditing: $isEditingMinute, time: formattedMinute())
                             
                         }
+                        
                         Text(":")
                             .font(.system(size: 48))
                             .fontWeight(.bold)
+                        
                         if isEditingSecond {
                             SettingTextField(editText: $editSecondText, isEditing: $isEditingSecond, timerRemaining: $timerRemaining, settingCountor: $settingCountor, formatTime: formattedSecond(), screenWidth: screenWidth,isSecond: true)
                         } else {
@@ -114,6 +119,7 @@ struct TimerView: View {
         return String(format: "%02d", minutes)
         
     }
+    
     private func formattedSecond() -> String {
         let second = Int(timerRemaining) % 60
         return String(format: "%02d", second)
@@ -141,6 +147,7 @@ struct TimerView: View {
         else { startTimer() }
     }
 }
+
 struct TimerText: View {
     @Binding var isEditing: Bool
     let time: String
@@ -150,13 +157,16 @@ struct TimerText: View {
 }
 
 struct SettingTextField: View {
+    
     @Binding var editText: String
     @Binding var isEditing: Bool
     @Binding var timerRemaining: TimeInterval
     @Binding var settingCountor: TimeInterval
+    
     let formatTime: String
     let screenWidth: CGFloat
     let isSecond: Bool
+    
     var body: some View {
         TextField("", text: $editText, onCommit: {
             if var time = TimeInterval(editText) {

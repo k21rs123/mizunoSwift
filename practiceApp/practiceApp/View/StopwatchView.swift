@@ -30,7 +30,7 @@ struct StopwatchView: View {
                 .font(.system(size: screenHeight * 0.1))
                 .frame(maxWidth: screenWidth * 0.9)
 
-            ScrollView {
+            VStack {
                 Text(firstLap)
                     .foregroundStyle(Color.black)
                 Text(secondLap)

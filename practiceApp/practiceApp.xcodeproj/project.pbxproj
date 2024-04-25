@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF59E2462BDA470C00F79D7E /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59E2452BDA470C00F79D7E /* TodoModel.swift */; };
 		AFBACB822BCE639F00F5694B /* practiceAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACB812BCE639F00F5694B /* practiceAppApp.swift */; };
 		AFBACB842BCE639F00F5694B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACB832BCE639F00F5694B /* ContentView.swift */; };
 		AFBACB862BCE63A100F5694B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBACB852BCE63A100F5694B /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF59E2452BDA470C00F79D7E /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		AFBACB7E2BCE639F00F5694B /* practiceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practiceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBACB812BCE639F00F5694B /* practiceAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceAppApp.swift; sourceTree = "<group>"; };
 		AFBACB832BCE639F00F5694B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF59E2412BDA468200F79D7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF59E2452BDA470C00F79D7E /* TodoModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		AFBACB752BCE639F00F5694B = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 		AFBACB802BCE639F00F5694B /* practiceApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF59E2412BDA468200F79D7E /* Model */,
 				AFBACC4F2BD1ECE700F5694B /* View */,
 				AFBACB812BCE639F00F5694B /* practiceAppApp.swift */,
 				AFBACB852BCE63A100F5694B /* Assets.xcassets */,
@@ -289,6 +300,7 @@
 				AFBACC532BD1ED8300F5694B /* TimerView.swift in Sources */,
 				AFBACC592BD1F67A00F5694B /* CountorView.swift in Sources */,
 				AFBACC512BD1ED6900F5694B /* MyInfoView.swift in Sources */,
+				AF59E2462BDA470C00F79D7E /* TodoModel.swift in Sources */,
 				AFBACC552BD1ED9F00F5694B /* StopwatchView.swift in Sources */,
 				AFBACBAC2BD01CF300F5694B /* IntroduceView.swift in Sources */,
 				AFBACC572BD1EDB100F5694B /* ToDoView.swift in Sources */,

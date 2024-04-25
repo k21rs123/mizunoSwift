@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 
-struct ToDoItem {
+struct ToDoItem: Codable {
     var isChecked: Bool
     var task: String
 }
@@ -16,13 +17,23 @@ struct ToDoItem {
 struct ToDoView: View {
     
     @State private var newTask: String = ""
-    @State private var todoLists: [ToDoItem] = [
-    ]
+    
+    @State private var todoLists: [ToDoItem] = ((UserDefaults.standard.data(forKey: "key"))
+        .flatMap { try? JSONDecoder().decode([ToDoItem].self, from: $0) }) ?? []
+    
     
     var body: some View {
         VStack {
-            Text("ToDoList")
-                .font(.system(size: 30, weight: .bold, design: .default))
+            HStack {
+                Spacer()
+                Button(action: {
+                    todoLists = deleteToDoTask(todoLists: todoLists)
+                }) {
+                    Text("完了済みを削除")
+                }
+                .padding() 
+            }
+            
             HStack {
                 
                 TextField("タスクを入力してください", text: $newTask)
@@ -37,31 +48,37 @@ struct ToDoView: View {
                     todoLists.append(
                         ToDoItem(isChecked: false, task: newTask)
                     )
+                    saveToDoTask(todoLists: todoLists)
+                    
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-
+                    
                     newTask = ""
                 })
                 .padding(.trailing, 20)
             }
-            ForEach(todoLists.indices, id: \.self) { index in
-                HStack {
-                    Button(action: {
-                        todoLists[index].isChecked.toggle()
-                    }, label: {
-                        Image(systemName:
-                                todoLists[index].isChecked ? "checkmark.square" : "square"
-                        )
-                        .imageScale(.large)
-                        .foregroundStyle(.pink)
-                    })
-                    Text(todoLists[index].task)
+            List {
+                ForEach(todoLists.indices, id: \.self) { index in
+                    HStack {
+                        Button(action: {
+                            todoLists[index].isChecked.toggle()
+                        }, label: {
+                            Image(systemName:
+                                    todoLists[index].isChecked ? "checkmark.square" : "square"
+                            )
+                            .imageScale(.large)
+                            .foregroundStyle(.pink)
+                        })
+                        Text(todoLists[index].task)
+                    }
+                    .padding(.top, 1)
+                    .padding(.leading, 20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .padding(.top, 1)
-                .padding(.leading, 20)
-                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        Spacer()
+        
+        .navigationTitle("ToDo List")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
