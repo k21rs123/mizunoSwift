@@ -15,7 +15,7 @@ func saveToDoTask(todoLists:[ToDoItem]) {
         // JSONデータをUserDefaultsに保存
         UserDefaults.standard.set(todoData, forKey: "key")
     } catch {
-        print("エラー：ToDoItemをJSONにエンコードできませんでした。")
+        print("エラー：Failed Encode Json")
     }
 }
 

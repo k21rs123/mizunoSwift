@@ -21,21 +21,26 @@ struct ToDoView: View {
     @State private var todoLists: [ToDoItem] = ((UserDefaults.standard.data(forKey: "key"))
         .flatMap { try? JSONDecoder().decode([ToDoItem].self, from: $0) }) ?? []
     
+    @State private var toggleAllCheck = false
+    
     
     var body: some View {
-        VStack {
+        
+        let size = UIScreen.main.bounds.size
+        let screenWidth = size.width
+        VStack(spacing: 0) {
             HStack {
                 Spacer()
                 Button(action: {
                     todoLists = deleteToDoTask(todoLists: todoLists)
                 }) {
                     Text("完了済みを削除")
+                        .foregroundStyle(Color.gray)
+                        .padding()
                 }
-                .padding() 
             }
             
             HStack {
-                
                 TextField("タスクを入力してください", text: $newTask)
                     .textFieldStyle(.roundedBorder)
                     .padding(EdgeInsets(
@@ -54,13 +59,36 @@ struct ToDoView: View {
                     
                     newTask = ""
                 })
-                .padding(.trailing, 20)
             }
+            .padding()
+            
+            HStack {
+                Button(action: {
+                    toggleAllCheck.toggle()
+                    for index in todoLists.indices {
+                        todoLists[index].isChecked = toggleAllCheck
+                    }
+                    
+                }, label: {
+                    Image(systemName: toggleAllCheck ? "checkmark.square" : "square")
+                        .foregroundStyle(Color.red)
+                    Text("All")
+                        .foregroundStyle(Color.gray)
+                })
+                .font(.system(size: 20))
+                .padding(.leading , screenWidth * 0.15)
+                .padding(.bottom, 8)
+                
+                Spacer()
+                
+            }
+            
             List {
                 ForEach(todoLists.indices, id: \.self) { index in
                     HStack {
                         Button(action: {
                             todoLists[index].isChecked.toggle()
+                            toggleAllCheck = false
                         }, label: {
                             Image(systemName:
                                     todoLists[index].isChecked ? "checkmark.square" : "square"
