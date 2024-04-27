@@ -23,6 +23,8 @@ struct LinkView: View {
                 NavLink(linkText: "StopWatch", screenWidth: screenWidth, content: StopwatchView())
                 
                 NavLink(linkText: "To Do", screenWidth: screenWidth, content: ToDoView())
+                
+                NavLink(linkText: "Camera", screenWidth: screenWidth, content: CameraAppView())
             })
         
         }
