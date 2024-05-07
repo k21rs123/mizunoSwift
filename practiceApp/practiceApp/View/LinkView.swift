@@ -25,6 +25,8 @@ struct LinkView: View {
                 NavLink(linkText: "To Do", screenWidth: screenWidth, content: ToDoView())
                 
                 NavLink(linkText: "Camera", screenWidth: screenWidth, content: CameraAppView())
+                
+                NavLink(linkText: "NFCScan", screenWidth: screenWidth, content: NFCCardView())
             })
         
         }

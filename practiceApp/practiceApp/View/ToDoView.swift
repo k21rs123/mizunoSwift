@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SwiftData
+//import SwiftData
 
 
 struct ToDoItem: Codable {
@@ -33,11 +33,13 @@ struct ToDoView: View {
                 Spacer()
                 Button(action: {
                     todoLists = deleteToDoTask(todoLists: todoLists)
+                    toggleAllCheck.toggle()
                 }) {
-                    Text("完了済みを削除")
-                        .foregroundStyle(Color.gray)
+                    Image(systemName: "trash")
+                        .foregroundStyle(todoLists.contains(where: {$0.isChecked}) ? Color.blue : Color.gray)
                         .padding()
                 }
+                .disabled(!todoLists.contains(where: {$0.isChecked}))
             }
             
             HStack {

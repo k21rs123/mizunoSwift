@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AF59E2462BDA470C00F79D7E /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59E2452BDA470C00F79D7E /* TodoModel.swift */; };
+		AF8466742BE0B65C00094D71 /* NFCCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8466732BE0B65C00094D71 /* NFCCardView.swift */; };
 		AFBACB822BCE639F00F5694B /* practiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACB812BCE639F00F5694B /* practiceApp.swift */; };
 		AFBACB842BCE639F00F5694B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBACB832BCE639F00F5694B /* ContentView.swift */; };
 		AFBACB862BCE63A100F5694B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBACB852BCE63A100F5694B /* Assets.xcassets */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		AF1D7EDE2BDDE8B500614DFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AF59E2452BDA470C00F79D7E /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		AF8466732BE0B65C00094D71 /* NFCCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCCardView.swift; sourceTree = "<group>"; };
+		AF8466752BE0B87700094D71 /* practiceApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = practiceApp.entitlements; sourceTree = "<group>"; };
 		AFBACB7E2BCE639F00F5694B /* practiceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practiceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBACB812BCE639F00F5694B /* practiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceApp.swift; sourceTree = "<group>"; };
 		AFBACB832BCE639F00F5694B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		AFBACB802BCE639F00F5694B /* practiceApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF8466752BE0B87700094D71 /* practiceApp.entitlements */,
 				AF1D7EDE2BDDE8B500614DFE /* Info.plist */,
 				AF59E2412BDA468200F79D7E /* Model */,
 				AFBACC4F2BD1ECE700F5694B /* View */,
@@ -168,6 +172,7 @@
 				AFBACC582BD1F67A00F5694B /* CountorView.swift */,
 				AFD424622BD2411F002117EE /* LinkView.swift */,
 				AFE660CE2BDCCA5300EB2C14 /* CameraAppView.swift */,
+				AF8466732BE0B65C00094D71 /* NFCCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF8466742BE0B65C00094D71 /* NFCCardView.swift in Sources */,
 				AFBACC532BD1ED8300F5694B /* TimerView.swift in Sources */,
 				AFBACC592BD1F67A00F5694B /* CountorView.swift in Sources */,
 				AFBACC512BD1ED6900F5694B /* MyInfoView.swift in Sources */,
@@ -473,10 +479,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = practiceApp/practiceApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"practiceApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 7342D5R9WS;
+				DEVELOPMENT_TEAM = QU5MY7WAK3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = practiceApp/Info.plist;
@@ -506,10 +513,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = practiceApp/practiceApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"practiceApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 7342D5R9WS;
+				DEVELOPMENT_TEAM = QU5MY7WAK3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = practiceApp/Info.plist;
